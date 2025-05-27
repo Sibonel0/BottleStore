@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "BottleStore",
+    "slug": "BottleStore",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/bottleStoreLogo.jpg",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/bottleStoreSplash.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/bottleStoreSplash.jpg",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/images/bottleStoreLogo.jpg"
+    }
+  }
+}
