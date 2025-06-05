@@ -63,7 +63,7 @@ const StockScreen = () => {
   };
 
   const saveNotification = async () => {
-    await fetch('http://10.150.13.91:3000/api/users/saveNotifications', {
+    await fetch('https://ngogola.onrender.com/api/users/saveNotifications', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -79,7 +79,7 @@ const StockScreen = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://10.150.13.91:3000/api/users/stock', {
+      const response = await fetch('https://ngogola.onrender.com/api/users/stock', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

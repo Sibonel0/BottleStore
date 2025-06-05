@@ -67,7 +67,7 @@ const RegistrationScreen = ({ navigation }) => {
     }
 
     try {
-      const response = await fetch("http://10.150.13.91:3000/api/users/register", {
+      const response = await fetch("https://ngogola.onrender.com/api/users/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, surname, password, username }),

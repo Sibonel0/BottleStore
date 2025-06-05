@@ -79,7 +79,7 @@ const ProfileScreen = () => {
           type: 'image/jpeg',
         });
 
-        const uploadResponse = await fetch(`http://10.150.13.91:3000/api/users/uploadProfileImage/${userId}`, {
+        const uploadResponse = await fetch(`https://ngogola.onrender.com/api/users/uploadProfileImage/${userId}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'multipart/form-data',
