@@ -29,6 +29,11 @@ app.use('/api/users', userRoutes);
 
 //FOR IMAGE
 app.use('/uploads', express.static('uploads'));
+
+app.get('/health', (req, res) => {
+  res.send('OK');
+});
+
 // Start the server (like app.Run())
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

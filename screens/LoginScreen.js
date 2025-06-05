@@ -68,7 +68,7 @@ const LoginScreen = ({ navigation }) => {
 
     try {
       // Send login request to backend
-      const response = await fetch("http://10.150.13.91:3000/api/users/login", {
+      const response = await fetch("http://10.150.14.148:3000/api/users/login", {
         method: "POST", // HTTP POST for login
         headers: {
           "Content-Type": "application/json"
