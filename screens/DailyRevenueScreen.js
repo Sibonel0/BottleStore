@@ -50,7 +50,7 @@ const DailyRevenueScreen = () => {
   }
 
   const saveNotification = async () => {
-    await fetch('http://10.150.14.245:3000/api/users/saveNotifications', {
+    await fetch('http://10.150.13.91:3000/api/users/saveNotifications', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -69,7 +69,7 @@ const DailyRevenueScreen = () => {
     setLoading(true);
     try {
       //Posting Daily Revenue
-      const response = await fetch('http://10.150.14.245:3000/api/users/revenue', {
+      const response = await fetch('http://10.150.13.91:3000/api/users/revenue', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ const DailyRevenueScreen = () => {
       if (response.ok) {
 
         //Save daily stock summary with netCash
-        await fetch('http://10.150.14.245:3000/api/users/daily-summary', {
+        await fetch('http://10.150.13.91:3000/api/users/daily-summary', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

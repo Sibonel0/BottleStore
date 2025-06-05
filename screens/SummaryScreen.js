@@ -16,7 +16,7 @@ const SummaryScreen = () => {
 
   const fetchSummary = async () => {
     try {
-      const response = await fetch('http://10.150.14.245:3000/api/users/summary');
+      const response = await fetch('http://10.150.13.91:3000/api/users/summary');
       const data = await response.json();
       setSummaryData(data);
     } catch (error) {
