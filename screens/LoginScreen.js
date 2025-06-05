@@ -13,9 +13,10 @@ KeyboardAvoidingView,
 SafeAreaView,
 Platform,
 Keyboard} from 'react-native';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'; // 🆕 Import AsyncStorage
 import { LinearGradient } from 'expo-linear-gradient';
+import {Ionicons} from '@expo/vector-icons';
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -25,6 +26,7 @@ const LoginScreen = ({ navigation }) => {
   const [passwordError, setPasswordError] = useState('');
 
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   //Animation
   const scaleAnim = useRef(new Animated.Value(1)).current;
@@ -45,7 +47,7 @@ const LoginScreen = ({ navigation }) => {
     }).start();
   };
 
-  const handleLogin = async () => {
+  const handleLogin = useCallback(async () => {
     // Reset any existing validation messages
     setUsernameError('');
     setPasswordError('');
@@ -66,7 +68,7 @@ const LoginScreen = ({ navigation }) => {
 
     try {
       // Send login request to backend
-      const response = await fetch("http://10.150.14.134:3000/api/users/login", {
+      const response = await fetch("http://10.150.13.91:3000/api/users/login", {
         method: "POST", // HTTP POST for login
         headers: {
           "Content-Type": "application/json"
@@ -115,77 +117,93 @@ const LoginScreen = ({ navigation }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [username, password, navigation]);
 
   return (
-    <KeyboardAvoidingView
-      style={{flex: 1}}
-      behaviour={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={80}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <LinearGradient colors={['#B0E5F2', '#72FBA0']} style={{flexGrow:1}}>
-          <SafeAreaView style={styles.container}>
-            <View style={styles.imageWrapper}>
-              <Image
-                source={require('../assets/images/BuzzHubAlt.png')}
-                style={styles.image}
-              />
-            </View>
+        <LinearGradient colors={['#B0E5F2', '#72FBA0']} style={{flex:1}}>
+          <SafeAreaView style={{flex: 1}}>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <View style={{flex: 1}}>
+                <View style={styles.imageWrapper}>
+                  <Image
+                    source={require('../assets/images/BuzzHubAlt.png')}
+                    style={styles.image}
+                  />
+                </View>
 
-            <View style={styles.formContent}>
-              <View style={styles.inputGroup}>
-                <Text style={styles.label}>Username</Text>
-                <TextInput
-                  style={styles.input}
-                  onChangeText={setUsername}
-                  value={username}
-                  placeholder='Enter Username'
-                />
-                {usernameError && <Text style={styles.errorText}>{usernameError}</Text>}
-              </View>
-
-              <View style={styles.inputGroup}>
-                <Text style={styles.label}>Password</Text>
-                <TextInput
-                  style={styles.input}
-                  onChangeText={setPassword}
-                  value={password}
-                  placeholder='Enter Password'
-                  secureTextEntry
-                />
-                {passwordError && <Text style={styles.errorText}>{passwordError}</Text>}
-              </View>
-
-              {loading ? (
-                <ActivityIndicator size="large" color="#0066cc" style={{ marginTop: 20 }} />
-              ) : (
-                <TouchableWithoutFeedback
-                  onPressIn={handlePressIn}
-                  onPressOut={handlePressOut}
-                  onPress={handleLogin}
+                <KeyboardAvoidingView
+                  style={{flex: 1}}
+                  behavior={Platform.OS === 'ios'? 'padding' : 'height'}
+                  keyboardVerticalOffset={Platform.OS === 'ios'? 25 : 20}
                 >
-                  <Animated.View style={[styles.loginButton, { transform: [{ scale: scaleAnim }] }]}>
-                    <Text style={styles.loginButtonText}>Login</Text>
-                  </Animated.View>
-                </TouchableWithoutFeedback>
-              )}
+                  <View style={styles.formContent}>
 
-              <TouchableOpacity onPress={() => navigation.navigate('RegistrationScreen')} style={styles.loginLink}>
-                <Text style={styles.linkText}>Not A User? Sign Up!</Text>
-              </TouchableOpacity>
-            </View>
+                    <View style={styles.inputWithIconWrapper}>
+                      <Ionicons name='person-outline' size={24} color={"#666"} style={styles.inputIcon} />
+                      <TextInput
+                        style={styles.inputWithIcon}
+                        onChangeText={setUsername}
+                        value={username}
+                        placeholder='Enter Username'
+                      />
+                      {usernameError && <Text style={styles.errorText}>{usernameError}</Text>}
+                    </View>
+
+                    <View style={styles.inputWithIconWrapper}>
+                      <TextInput
+                        style={styles.inputWithIcon}
+                        onChangeText={setPassword}
+                        value={password}
+                        placeholder='Enter Password'
+                        secureTextEntry={!showPassword}
+                        autoCapitalize='none'
+                        autoCorrect={false}
+                        returnKeyType='done'
+                        onSubmitEditing={handleLogin}
+                      />
+                      <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+                      <Ionicons
+                        name={showPassword ? 'eye-off' : 'eye'}
+                        size={24}
+                        color="#666"
+                      />
+                    </TouchableOpacity>
+                    </View>
+                    {passwordError && <Text style={styles.errorText}>{passwordError}</Text>}
+
+                    
+
+                    {loading ? (
+                      <ActivityIndicator size="large" color="#0066cc" style={{ marginTop: 20 }} />
+                    ) : (
+                      <TouchableWithoutFeedback
+                        onPressIn={handlePressIn}
+                        onPressOut={handlePressOut}
+                        onPress={handleLogin}
+                      >
+                        <Animated.View style={[styles.loginButton, { transform: [{ scale: scaleAnim }] }]}>
+                          <Text style={styles.loginButtonText}>Login</Text>
+                        </Animated.View>
+                      </TouchableWithoutFeedback>
+                    )}
+
+                    <TouchableOpacity onPress={() => navigation.navigate('RegistrationScreen')} style={styles.loginLink}>
+                      <Text style={styles.linkText}>Not A User? Sign Up!</Text>
+                    </TouchableOpacity>
+                  </View>
+                </KeyboardAvoidingView>
+              </View>
+            </TouchableWithoutFeedback>
           </SafeAreaView>
         </LinearGradient>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+      
   );
 };
 
 // 🖌️ Modern styling for form UI
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
     padding: 20,
     justifyContent: 'center'
   },
@@ -220,7 +238,6 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   loginButton: {
-    marginHorizontal: 10,
     backgroundColor: '#0066cc',
     paddingVertical: 14,
     borderRadius: 10,
@@ -248,20 +265,58 @@ const styles = StyleSheet.create({
   },
   imageWrapper: {
     width: '100%',
-    height: 200,
+    aspectRatio: 1.5,
 
   },
   image: {
   width: '100%',
-  height: '150%',
+  height: '100%',
   resizeMode: 'cover',
   borderRadius:30,
 },
 formContent: {
   flex: 1,
-  padding: 20,
+  padding: 10,
   justifyContent: 'center'
+},
+ passwordInputWrapper: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  borderWidth: 1,
+  borderColor: '#ccc',
+  borderRadius: 10,
+  padding: 12,
+  marginTop: 10,
+  paddingHorizontal: 10,
+  backgroundColor: '#fff',
+  marginHorizontal: 10,
+},
+toggleText: {
+  color: '#0066cc',
+  fontWeight: 'bold',
+  alignSelf:'flex-end' ,
+  borderRadius: 20,
+},
+inputWithIconWrapper: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  borderWidth: 1,
+  borderColor: '#ccc',
+  borderRadius: 10,
+  paddingHorizontal: 10,
+  paddingVertical: 12,
+  marginHorizontal: 10,
+  backgroundColor: '#fff',
+  marginTop: 10,
+},
+inputIcon: {
+  marginRight: 10,
+},
+inputWithIcon: {
+  flex: 1,
+  fontSize: 16,
 }
+
 });
 
 export default LoginScreen;
