@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 10 },
     shadowRadius: 10,
     paddingBottom: Platform.OS === 'android' ? 5 : 20,
-    marginHorizontal: 10
+    marginHorizontal: 10,
+    marginBottom: 25
   },
 });

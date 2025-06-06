@@ -31,7 +31,7 @@ const upload = multer({ storage });
 // Upload Profile Picture
 router.post('/uploadProfileImage/:userId', upload.single('profileImage'), async (req, res) => {
   const { userId } = req.params;
-  const profileUrl = `http://10.150.14.245:3000/uploads/${req.file.filename}`;
+  const profileUrl = `https://ngogola.onrender.com/uploads/${req.file.filename}`;
 
   if (!req.file) return res.status(400).json({message: 'No file uploaded'});
 

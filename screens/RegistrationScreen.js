@@ -99,7 +99,7 @@ const RegistrationScreen = ({ navigation }) => {
       keyboardVerticalOffset={80}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <LinearGradient colors={['#B0E5F2', '#72FBA0']} style={{flexGrow: 1}}>
+        <LinearGradient colors={['#D3D9D9', '#244242']} style={{flexGrow: 1}}>
           <SafeAreaView style={styles.container}>
             <Text style={styles.header}>Create Account</Text>
 
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   button: {
-    backgroundColor: '#0066cc',
+    backgroundColor: '#007AFF',
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: 'center',
@@ -222,6 +222,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 70,
   },
   buttonText: {
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -229,7 +230,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   linkText: {
-    color: '#0066cc',
+    color: '#007AFF',
     fontSize: 16,
     textDecorationLine: 'underline',
   },

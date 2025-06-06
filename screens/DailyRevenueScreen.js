@@ -118,7 +118,7 @@ const DailyRevenueScreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <LinearGradient colors={['#f8f8f8', '#000']} style={styles.container}>
+      <LinearGradient colors={['#244242', '#000']} style={styles.container}>
         <SafeAreaView style={styles.innerContainer}>
           <View style={styles.inputGroup}>
             <Text style={styles.title}>Daily Revenue</Text>

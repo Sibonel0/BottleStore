@@ -29,8 +29,8 @@ const ProfileScreen = () => {
 
       try {
         const [notifRes, userRes] = await Promise.all([
-          fetch(`http://10.150.14.245:3000/api/users/getNotifications/${id}`),
-          fetch(`http://10.150.14.245:3000/api/users/getUserInfo/${id}`)
+          fetch(`https://ngogola.onrender.com/api/users/getNotifications/${id}`),
+          fetch(`https://ngogola.onrender.com/api/users/getUserInfo/${id}`)
         ]);
 
         const notifData = await notifRes.json();
@@ -142,7 +142,7 @@ const ProfileScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: '#B8EBD2' },
+  container: { flex: 1, padding: 20, backgroundColor: '#808080' },
   header: { alignItems: 'center', marginBottom: 20 },
   avatar: { width: 100, height: 100, borderRadius: 50, marginBottom: 10, borderWidth: 0.3 },
   name: { fontSize: 20, fontWeight: 'bold' },

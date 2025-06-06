@@ -71,7 +71,7 @@ export default function HomeScreen({navigation}) {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
         {/* Header with Menu Toggle */}
-        <ImageBackground source={require('../assets/images/BuzzHubSplash.png')} style={styles.header}>
+        <ImageBackground source={require('../assets/images/bottleStoreLogo.jpg')} style={styles.header}>
           <TouchableOpacity style={styles.menuIcon} onPress={() => setModalVisible(true)}>
             <Icon name="menu" size={30}  />
           </TouchableOpacity>
@@ -214,7 +214,7 @@ export default function HomeScreen({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#000',
+    backgroundColor: '#244242',
     flex: 1,
   },
   header: {
@@ -285,7 +285,7 @@ tileText: {
   marginHorizontal: 25,
   borderRadius: 30,
   overflow: 'hidden',
-  backgroundColor: 'rgba(255, 255, 255, 0.15)', // makes blur more noticeable
+  backgroundColor: 'rgba(255, 255, 255, 0.15', // makes blur more noticeable
   //borderColor: 'rgba(255,255,255,0.2)',
   borderWidth: 1,
   },

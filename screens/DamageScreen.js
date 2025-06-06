@@ -66,10 +66,9 @@ const DamageScreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <LinearGradient colors={['#f8f8f8', '#000']} style={styles.container}>
+      <LinearGradient colors={['#244242', '#000']} style={styles.container}>
         <View style={styles.innerContainer}>
           <Text style={styles.title}>Report Damages</Text>
-          <Text style={styles.label}>Total Damages</Text>
           <TextInput
             style={styles.input}
             keyboardType="numeric"
@@ -119,9 +118,11 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#007AFF',
-    paddingVertical: 14,
+    paddingVertical: 11,
     borderRadius: 8,
     alignItems: 'center',
+    marginHorizontal: 80,
+
   },
   buttonText: {
     color: '#fff',

@@ -123,7 +123,7 @@ const StockScreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <LinearGradient colors={['#f8f8f8', '#000']} style={styles.container}>
+      <LinearGradient colors={['#244242', '#000']} style={styles.container}>
         <SafeAreaView style={styles.innerContainer}>
           <Text style={styles.title}>Stock Entry</Text>
 

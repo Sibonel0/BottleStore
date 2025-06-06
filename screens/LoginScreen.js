@@ -120,13 +120,13 @@ const LoginScreen = ({ navigation }) => {
   }, [username, password, navigation]);
 
   return (
-        <LinearGradient colors={['#B0E5F2', '#72FBA0']} style={{flex:1}}>
+        <LinearGradient colors={['#244242', '#D3D9D9']} style={{flex:1}}>
           <SafeAreaView style={{flex: 1}}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <View style={{flex: 1}}>
                 <View style={styles.imageWrapper}>
                   <Image
-                    source={require('../assets/images/BuzzHubAlt.png')}
+                    source={require('../assets/images/bottleStoreAdditional2.jpg')}
                     style={styles.image}
                   />
                 </View>
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   loginButton: {
-    backgroundColor: '#0066cc',
+    backgroundColor: '#007AFF',
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: 'center',
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 60
   },
   loginButtonText: {
-    color: '#333',
+    color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   linkText: {
-    color: '#0066cc',
+    color: '#007AFF',
     fontSize: 16,
     textDecorationLine: 'underline',
   },

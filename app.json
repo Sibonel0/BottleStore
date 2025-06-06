@@ -20,10 +20,16 @@
         "foregroundImage": "./assets/images/bottleStoreSplash.jpg",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.kabay1.BottleStore"
     },
     "web": {
       "favicon": "./assets/images/bottleStoreLogo.jpg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e496b014-0595-41a3-8e7e-aab4d2bd75d4"
+      }
     }
   }
 }
