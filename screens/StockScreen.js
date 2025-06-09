@@ -146,13 +146,13 @@ const StockScreen = () => {
           {errors.category && <Text style={styles.errorText}>{errors.category}</Text>}
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Total Stock</Text>
+
             <TextInput
               style={styles.input}
               keyboardType="numeric"
               value={totalStock}
               onChangeText={setTotalStock}
-              placeholder="Enter total stock"
+              placeholder="Enter total stock price"
             />
             {errors.totalStock && <Text style={styles.errorText}>{errors.totalStock}</Text>}
           </View>
@@ -188,7 +188,8 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   inputGroup: {
-    marginBottom: 20,
+    marginBottom: 10,
+    marginTop: 28
   },
   label: {
     fontSize: 16,

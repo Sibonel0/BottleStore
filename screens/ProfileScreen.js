@@ -142,7 +142,7 @@ const ProfileScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: '#808080' },
+  container: { flex: 1, padding: 20, backgroundColor: '#244242' },
   header: { alignItems: 'center', marginBottom: 20 },
   avatar: { width: 100, height: 100, borderRadius: 50, marginBottom: 10, borderWidth: 0.3 },
   name: { fontSize: 20, fontWeight: 'bold' },

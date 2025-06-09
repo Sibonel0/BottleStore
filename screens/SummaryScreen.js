@@ -80,7 +80,7 @@ const formatDate = (isoDate) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#248A8E',
+    backgroundColor: '#244242',
     paddingHorizontal: 10,
     paddingTop: 10,
   },
