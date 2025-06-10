@@ -173,7 +173,7 @@ router.post('/daily-summary', async (req, res) => {
 
     // Get damages (if added today)
     const damageResult = await pool.query(
-      'SELECT COALESCE(SUM(damages), 0) AS totalDamage FROM Damages WHERE userid = $1 AND date = $2',
+      'SELECT COALESCE(SUM(totalDamage), 0) AS totalDamage FROM Damages WHERE userid = $1 AND date = $2',
       [userId, today]
     );
     const totalDamages = damageResult.rows[0].totalDamage || 0;
