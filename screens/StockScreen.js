@@ -123,7 +123,7 @@ const StockScreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <LinearGradient colors={['#244242', '#000']} style={styles.container}>
+      <LinearGradient colors={['#000', '#244242']} style={styles.container}>
         <SafeAreaView style={styles.innerContainer}>
           <Text style={styles.title}>Stock Entry</Text>
 
@@ -186,6 +186,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 30,
+    color: '#fff',
   },
   inputGroup: {
     marginBottom: 10,

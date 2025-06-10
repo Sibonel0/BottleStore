@@ -118,10 +118,10 @@ const DailyRevenueScreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <LinearGradient colors={['#244242', '#000']} style={styles.container}>
+      <LinearGradient colors={['#000', '#244242']} style={styles.container}>
         <SafeAreaView style={styles.innerContainer}>
           <View style={styles.inputGroup}>
-            <Text style={styles.title}>Daily Revenue</Text>
+            <Text style={styles.title}>Daily Cash</Text>
             <TextInput
               style={styles.input}
               keyboardType="numeric"
@@ -172,7 +172,8 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#fff'
   },
   input: {
     borderWidth: 1,

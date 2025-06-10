@@ -56,11 +56,12 @@ export default function HomeScreen({navigation}) {
   }, []);
 
   const buttons = [
-    {label: 'Daily Cash', icon: 'cash-register', onPress: () => Alert.alert('Feature currently unavailable')},
-    {label: 'Stock', icon: 'cube-outline', onPress: () => Alert.alert('Feature currently unavailable')},
-    {label: 'Damages', icon: 'close-circle-outline', onPress: () => Alert.alert('Feature currently unavailable')},
-    {label: 'Profile', icon: 'account', onPress: () => Alert.alert('Feature currently unavailable')},
-    {label: 'Payments', icon: 'wallet-outline', onPress: () => Alert.alert('Feature currently unavailable')},
+    {label: 'Daily Cash', icon: 'cash-register', onPress: () => navigation.navigate('DailyCashScreen')},
+    {label: 'Stock', icon: 'cube-outline', onPress: () => navigation.navigate('StockScreen')},
+    {label: 'Damages', icon: 'close-circle-outline', onPress: () => navigation.navigate('DamageScreen')},
+    {label: 'Profile', icon: 'account', onPress: () => navigation.navigate('ProfileScreen')},
+    {label: 'Payments', icon: 'wallet-outline', onPress: () => Alert.alert('Coming Soon... ;)')},
+    {label: 'ChatBot', icon: 'robot-outline', onPress: () => navigation.navigate('ChatBotScreen')}
   ];
 
   const filteredButtons = buttons.filter(btn =>
