@@ -194,7 +194,7 @@ router.post('/daily-summary', async (req, res) => {
     await pool.query(
       `INSERT INTO DailyStockSummary (userid, date, opening_stock, total_stock, damages, net_cash, closing_stock)
        VALUES ($1, $2, $3, $4, $5, $6, $7)
-       ON CONFLICT (user_id, summary_date) DO NOTHING`,
+       ON CONFLICT (userid, date) DO NOTHING`,
       [userId, today, openingStock, totalStock, totalDamages, netCash, closingStock]
     );
 

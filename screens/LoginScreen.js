@@ -12,7 +12,8 @@ TouchableWithoutFeedback,
 KeyboardAvoidingView,
 SafeAreaView,
 Platform,
-Keyboard} from 'react-native';
+Keyboard,
+Dimensions} from 'react-native';
 import React, { useState, useRef, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'; // 🆕 Import AsyncStorage
 import { LinearGradient } from 'expo-linear-gradient';
@@ -134,7 +135,7 @@ const LoginScreen = ({ navigation }) => {
                 <KeyboardAvoidingView
                   style={{flex: 1}}
                   behavior={Platform.OS === 'ios'? 'padding' : 'height'}
-                  keyboardVerticalOffset={Platform.OS === 'ios'? 25 : 60}
+                  keyboardVerticalOffset={Platform.OS === 'ios'? 25 : 25}
                 >
                   <View style={styles.formContent}>
 
@@ -269,7 +270,7 @@ const styles = StyleSheet.create({
   },
   image: {
   width: '100%',
-  height: '100%',
+  height: Dimensions.get("screen").height /3,
   resizeMode: 'cover',
   borderRadius:30,
 },

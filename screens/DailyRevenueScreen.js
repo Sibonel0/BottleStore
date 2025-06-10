@@ -144,7 +144,7 @@ const DailyRevenueScreen = () => {
               editable={false}
             />
             {loading ? (
-              <ActivityIndicator size="large" color="#007AFF" />
+              <ActivityIndicator size="large" color="#244242" />
             ) : (
               <TouchableOpacity style={styles.button} onPress={handleSave}>
                 <Text style={styles.buttonText}>Save</Text>
