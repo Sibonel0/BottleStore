@@ -131,9 +131,10 @@ router.post('/revenue', async (req, res) => {
   }
 
   try {
+    
     const result = await pool.query(
-      'INSERT INTO DailyRevenue (user_id, till, expenditure, net_cash, date) VALUES ($1, $2, $3, $4, NOW()) RETURNING *',
-      [userId, till, expenditure, netCash]
+      'INSERT INTO revenue (till, expenditure, net_cash, userid, date) VALUES ($1, $2, $3, $4, NOW()) RETURNING *',
+      [till, expenditure, netCash, userId]
     );
 
     res.status(201).json({ message: 'Revenue saved', data: result.rows[0] });
@@ -231,17 +232,18 @@ router.post('/stock', async (req, res) => {
 // routes/damages.js
 
 router.post('/damages', async (req, res) => {
-  const { userId, date, totalDamages } = req.body;
+  const { userId, totalDamages } = req.body;
 
   if (!userId || !totalDamages || !date) {
     return res.status(400).json({ message: 'Missing required fields' });
   }
 
   try {
+    const currentDate = new Date().toISOString().split('T')[0];
     const result = await pool.query(
       `INSERT INTO Damages (totalDamage, userId, date)
        VALUES ($1, $2, $3) RETURNING *`,
-      [totalDamages, userId, date]
+      [totalDamages, userId, currentDate]
     );
 
     res.status(201).json({ message: 'Damage recorded', data: result.rows[0] });

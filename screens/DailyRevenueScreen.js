@@ -55,7 +55,7 @@ const DailyRevenueScreen = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         userId,
-        message: `Revenue recorded: Till E${till}, Expenditure E${expenditure}, NetCash E${netCash}`
+        message: `Revenue recorded: Till E${parseFloat(till).toFixed(2)}, Expenditure E${parseFloat(expenditure).toFixed(2)}, NetCash E${parseFloat(netCash).toFixed(2)}`
       }),
     });
   }

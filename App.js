@@ -58,9 +58,8 @@ export default function App() {
       const agreed = await AsyncStorage.getItem('termsAgreed')
       setInitialRoute(agreed === 'true'? 'HomeScreen' : 'PolicyScreen');
     }
-
-    checkAgreement();
     requestNotificationPermissions();
+    checkAgreement();
     checkSession();
   }, []);
 

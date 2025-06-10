@@ -43,8 +43,7 @@ const DamageScreen = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           userId,
-          totalDamages: parseFloat(totalDamages),
-          //date: new Date().toISOString().split('T')[0], // YYYY-MM-DD
+          totalDamages: parseFloat(totalDamages)
         }),
       });
 

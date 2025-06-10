@@ -68,7 +68,7 @@ const StockScreen = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         userId,
-        message: `Category: ${category}, Stock: ${totalStock} units.`
+        message: `Category: ${category}, Stock: E${parseFloat(totalStock).toFixed(2)}.`
       }),
     });
   }
@@ -98,7 +98,7 @@ const StockScreen = () => {
         await Notifications.scheduleNotificationAsync({
           content: {
             title: 'Stock Entry Recorded 📦',
-            body: `Category: ${category}, Stock: ${totalStock} units.`,
+            body: `Category: ${category}, Stock: E${parseFloat(totalStock).toFixed(2)}`,
           },
           trigger: null,
         });

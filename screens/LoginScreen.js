@@ -134,7 +134,7 @@ const LoginScreen = ({ navigation }) => {
                 <KeyboardAvoidingView
                   style={{flex: 1}}
                   behavior={Platform.OS === 'ios'? 'padding' : 'height'}
-                  keyboardVerticalOffset={Platform.OS === 'ios'? 25 : 20}
+                  keyboardVerticalOffset={Platform.OS === 'ios'? 25 : 60}
                 >
                   <View style={styles.formContent}>
 
@@ -265,8 +265,7 @@ const styles = StyleSheet.create({
   },
   imageWrapper: {
     width: '100%',
-    aspectRatio: 1.5,
-
+    aspectRatio: Platform.OS === 'android'? 1.5: undefined,
   },
   image: {
   width: '100%',
@@ -304,10 +303,11 @@ inputWithIconWrapper: {
   borderColor: '#ccc',
   borderRadius: 10,
   paddingHorizontal: 10,
-  paddingVertical: 12,
+  paddingVertical: Platform.OS === 'android' ? 6 : 12,
   marginHorizontal: 10,
   backgroundColor: '#fff',
   marginTop: 10,
+  minHeight: 50, //gurantees proper height across all platforms
 },
 inputIcon: {
   marginRight: 10,
@@ -315,6 +315,11 @@ inputIcon: {
 inputWithIcon: {
   flex: 1,
   fontSize: 16,
+  color: '#000', 
+  paddingVertical: Platform.OS === 'android' ? 6 : 12,
+  includeFontPadding: false, //Android font alignment
+  textAlignVertical: 'center', //aids with multiline or clipped inputs
+  minHeight: 40, //prevents text from getting cut off 
 }
 
 });
