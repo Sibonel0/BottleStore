@@ -82,6 +82,7 @@ const DailyRevenueScreen = () => {
       });
       
       const data = await response.json();
+      console.log("check user data...",data)
       
       if (response.ok) {
 
