@@ -147,7 +147,6 @@ router.post('/revenue', async (req, res) => {
 //Post to daily summary table
 router.post('/daily-summary', async (req, res) => {
   const { userId, netCash } = req.body;
-  console.log("check user data....",userId,netCash)
 
   if (!userId || netCash === undefined) {
     return res.status(400).json({ message: 'Missing userId or netCash' });

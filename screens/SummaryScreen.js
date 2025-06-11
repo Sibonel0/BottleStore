@@ -40,7 +40,7 @@ const SummaryScreen = () => {
 };
 const formatDate = (isoDate) => {
   const date = new Date(isoDate);
-  date.setDate(date.getDate()+1)
+  date.setDate(date.getDate())
   return date.toISOString().split('T')[0]; // Returns 'YYYY-MM-DD'
 };
 
